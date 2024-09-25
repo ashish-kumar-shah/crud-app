@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+  <!-- Form to Create Start -->
+  <div id="formContainer" class="w-full h-screen hidden justify-center items-center absolute bg-black bg-opacity-50">
+    <div class="input w-80 h-auto bg-white rounded-xl border shadow-lg relative">
+      <!-- Close Button -->
+      <div class="w-full h-10 text-right pr-4 pt-2 text-3xl">
+        <span id="closeForm" class="cursor-pointer text-red-500 hover:text-red-700" onclick="closeForm()">&times;</span>
+      </div>
+      
+      <!-- Form -->
+      <form id="userForm" class="w-full h-full p-4 flex flex-col justify-center items-center gap-4">
+        
+        <!-- Input Fields -->
+        <div class="data w-full space-y-4">
+          <div class="name w-full">
+            <input type="text" id="name" required class="w-full h-12 pl-3 outline-none border-b focus:border-blue-400 transition-all duration-300" placeholder="Enter Name">
+          </div>
+          <div class="email w-full">
+            <input type="email" id="email" required class="w-full h-12 pl-3 outline-none border-b focus:border-blue-400 transition-all duration-300" placeholder="Enter Email">
+          </div>
+        </div>
+        
+        <!-- Error/Success Message -->
+        <div id="message" class="w-full text-center text-red-500 mt-2"></div>
+      
+        <!-- Create Button -->
+        <div id="submitBtn" class="button w-full h-12 flex justify-center items-center bg-yellow-500 text-white font-semibold rounded-md shadow-md cursor-pointer hover:bg-yellow-400 transition-all duration-300"  onclick="openForm()" >
+          Create
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Form to Create End -->
+  <!-- Main Table -->
+  <div class="w-full h-screen p-1 flex justify-center items-center">
+    <div class="w-[80%] h-full flex justify-center items-center flex-col">
+      <div class="w-full h-10 bg-white p-1">
+        <!-- Create Button -->
+        <div class="w-fit h-full float-right pl-2 pr-2 rounded font-mono justify-center items-center flex cursor-pointer shadow-2xl hover:shadow-inner text-xl bg-purple-100 hover:bg-purple-400 hover:text-white" onclick="openForm()">
+          Create
+        </div>
+      </div>
+
+      <!-- Data Table -->
+      <div class="w-full h-full overflow-x-auto">
+        <table class="bg-gray-100 mt-2 w-full h-fit p-1">
+          <thead>
+            <tr class="border text-center text-wrap font-mono">
+              <th class="border min-w-10">S.No</th>
+              <th class="border min-w-10">Name</th>
+              <th class="border min-w-10">Email</th>
+              <th class="border min-w-10">Update</th>
+              <th class="border min-w-10">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="data-container">
+          <!-- content injected here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+ 
+  <script src="Storage.js"></script>
+  
+  <script src="main.js"></script>
+</body>
+</html>
